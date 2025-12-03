@@ -1,0 +1,12 @@
+Metrikus
+    <- concept_iot_platform;
+    => nrel_main_idtf:
+        [Metrikus]
+        (*
+            <- lang_en;;
+        *);
+    => nrel_main_idtf:
+        [Метрикус]
+        (*
+            <- lang_ru;;
+        *);;

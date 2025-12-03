@@ -1,0 +1,17 @@
+concept_building
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [здание]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [building]
+        (*
+            <- lang_en;;
+        *);
+    => nrel_definition:
+        [Здание — это объект недвижимости, в котором могут быть установлены IoT-устройства для мониторинга и управления.]
+        (*
+            <- lang_ru;;
+        *);;

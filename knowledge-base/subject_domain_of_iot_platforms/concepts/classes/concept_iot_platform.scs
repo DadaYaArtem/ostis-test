@@ -1,0 +1,17 @@
+concept_iot_platform
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [IoT-платформа]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [IoT platform]
+        (*
+            <- lang_en;;
+        *);
+    => nrel_definition:
+        [IoT-платформа — это программно-аппаратный комплекс для управления, мониторинга и анализа данных с IoT-устройств.]
+        (*
+            <- lang_ru;;
+        *);;

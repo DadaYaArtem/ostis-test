@@ -1,0 +1,17 @@
+concept_iot_device
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [IoT-устройство]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [IoT device]
+        (*
+            <- lang_en;;
+        *);
+    => nrel_definition:
+        [IoT-устройство — это физическое устройство, подключенное к сети и способное собирать данные или выполнять команды.]
+        (*
+            <- lang_ru;;
+        *);;

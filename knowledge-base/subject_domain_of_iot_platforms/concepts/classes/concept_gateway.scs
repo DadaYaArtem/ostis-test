@@ -1,0 +1,19 @@
+concept_gateway
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [шлюз]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [gateway]
+        (*
+            <- lang_en;;
+        *);
+    <= nrel_inclusion:
+        concept_iot_device;
+    => nrel_definition:
+        [Шлюз — это IoT-устройство, обеспечивающее связь между локальными устройствами и облачной платформой.]
+        (*
+            <- lang_ru;;
+        *);;

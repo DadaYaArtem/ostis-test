@@ -1,0 +1,64 @@
+@search_sensors_by_type = {
+    // Шаг 1: Найти все устройства платформы
+    rrel_init_template: {
+        rrel_template: [*
+            @input_param1 = (.._platform <-_ concept_iot_platform);;
+            rrel_device _-> (.._platform _-> .._device);;
+            @output_param1 = (.._device <-_ concept_iot_device);;
+        *];
+        rrel_template_input_params: {
+            @input_param1
+        };
+        rrel_template_output_params: {
+            @output_param1
+        }
+    } (* <- nrel_search_set_template;; *);
+    
+    // Шаг 2: Отфильтровать только датчики
+    rrel_next_template: {
+        rrel_init_template: {
+            rrel_template: [*
+                @input_param1 = (.._device <-_ concept_iot_device);;
+                @output_param1 = (.._device <-_ concept_sensor);;
+            *];
+            rrel_template_input_params: {
+                @input_param1
+            };
+            rrel_template_output_params: {
+                @output_param1
+            }
+        } (* <- nrel_search_set_template;; *);
+        
+        // Шаг 3: Найти тип датчика
+        rrel_next_template: {
+            rrel_init_template: {
+                rrel_template: [*
+                    @input_param1 = (.._sensor <-_ concept_sensor);;
+                    @input_param2 = (.._sensor_type <-_ sc_node_class);;
+                    nrel_device_type _-> (.._sensor _=> .._sensor_type);;
+                    @output_param1 = (.._sensor_type <-_ sc_node_class);;
+                *];
+                rrel_template_input_params: {
+                    @input_param1;
+                    @input_param2
+                };
+                rrel_template_output_params: {
+                    @output_param1
+                }
+            } (* <- nrel_search_set_template;; *)
+        } (* <- nrel_fixed_search_strategy_template;; *)
+    } (* <- nrel_fixed_search_strategy_template;; *)
+};;
+
+@search_sensors_by_type
+    <- nrel_fixed_search_strategy_template;
+    => nrel_main_idtf:
+        [Шаблон поиска датчиков по типу]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Template for searching sensors by type]
+        (*
+            <- lang_en;;
+        *);;

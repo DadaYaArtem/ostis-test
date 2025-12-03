@@ -1,0 +1,45 @@
+@check_device_is_sensor = {
+    // Шаг 1: Проверить, что устройство является датчиком
+    rrel_init_template: {
+        rrel_template: [*
+            @input_param1 = (.._device <-_ concept_iot_device);;
+            @output_param1 = (.._device <-_ concept_sensor);;
+        *];
+        rrel_template_input_params: {
+            @input_param1
+        };
+        rrel_template_output_params: {
+            @output_param1
+        }
+    } (* <- nrel_search_template;; *);
+    
+    // Шаг 2: Найти тип датчика
+    rrel_next_template: {
+        rrel_init_template: {
+            rrel_template: [*
+                @input_param1 = (.._sensor <-_ concept_sensor);;
+                nrel_device_type _-> (.._sensor _=> .._type);;
+                @output_param1 = (.._type <-_ sc_node_class);;
+            *];
+            rrel_template_input_params: {
+                @input_param1
+            };
+            rrel_template_output_params: {
+                @output_param1
+            }
+        } (* <- nrel_search_template;; *)
+    } (* <- nrel_fixed_search_strategy_template;; *)
+};;
+
+@check_device_is_sensor
+    <- nrel_fixed_search_strategy_template;
+    => nrel_main_idtf:
+        [Шаблон проверки устройства на датчик]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Template for checking if device is sensor]
+        (*
+            <- lang_en;;
+        *);;

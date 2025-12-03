@@ -1,0 +1,150 @@
+Metrikus
+    -> rrel_device:
+        TempSensor_101_1;
+        TempSensor_102_1;
+        HumiditySensor_101_1;
+        CO2Sensor_201_1;
+        LightActuator_101_1;
+        Gateway_A;;
+
+// Датчики температуры
+TempSensor_101_1
+    <- concept_sensor;
+    <- concept_iot_device;  // <-- ДОБАВИЛ
+    => nrel_main_idtf:
+        [Датчик температуры 101-1]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_device_type:
+        concept_temperature_sensor;
+    => nrel_located_in:
+        Room_101;
+    => nrel_sensor_value:
+        [22.5]
+        (*
+            <- lang_ru;;
+        *);;
+
+TempSensor_102_1
+    <- concept_sensor;
+    <- concept_iot_device;  // <-- ДОБАВИЛ
+    => nrel_main_idtf:
+        [Датчик температуры 102-1]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_device_type:
+        concept_temperature_sensor;
+    => nrel_located_in:
+        Room_102;
+    => nrel_sensor_value:
+        [23.1]
+        (*
+            <- lang_ru;;
+        *);;
+
+// Датчик влажности
+HumiditySensor_101_1
+    <- concept_sensor;
+    <- concept_iot_device;  // <-- ДОБАВИЛ
+    => nrel_main_idtf:
+        [Датчик влажности 101-1]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_device_type:
+        concept_humidity_sensor;
+    => nrel_located_in:
+        Room_101;
+    => nrel_sensor_value:
+        [45.2]
+        (*
+            <- lang_ru;;
+        *);;
+
+// Датчик CO2
+CO2Sensor_201_1
+    <- concept_sensor;
+    <- concept_iot_device;  // <-- ДОБАВИЛ
+    => nrel_main_idtf:
+        [Датчик CO2 201-1]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_device_type:
+        concept_co2_sensor;
+    => nrel_located_in:
+        Room_201;
+    => nrel_sensor_value:
+        [650]
+        (*
+            <- lang_ru;;
+        *);;
+
+// Исполнительное устройство
+LightActuator_101_1
+    <- concept_actuator;
+    <- concept_iot_device;  // <-- ДОБАВИЛ
+    => nrel_main_idtf:
+        [Актуатор освещения 101-1]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_device_type:
+        concept_light_actuator;
+    => nrel_located_in:
+        Room_101;;
+
+// Шлюз
+Gateway_A
+    <- concept_gateway;
+    <- concept_iot_device;  // <-- ДОБАВИЛ
+    => nrel_main_idtf:
+        [Шлюз A]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_device_type:
+        concept_gateway;;
+
+// Дополнительные классы типов устройств
+concept_temperature_sensor
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [датчик температуры]
+        (*
+            <- lang_ru;;
+        *);
+    <= nrel_inclusion:
+        concept_sensor;;
+
+concept_humidity_sensor
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [датчик влажности]
+        (*
+            <- lang_ru;;
+        *);
+    <= nrel_inclusion:
+        concept_sensor;;
+
+concept_co2_sensor
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [датчик CO2]
+        (*
+            <- lang_ru;;
+        *);
+    <= nrel_inclusion:
+        concept_sensor;;
+
+concept_light_actuator
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [актуатор освещения]
+        (*
+            <- lang_ru;;
+        *);
+    <= nrel_inclusion:
+        concept_actuator;;

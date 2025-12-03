@@ -1,0 +1,69 @@
+Building_A
+    <- concept_building;
+    => nrel_main_idtf:
+        [Здание A]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Building A]
+        (*
+            <- lang_en;;
+        *);
+    -> rrel_room:
+        Room_101;
+        Room_102;
+        Room_201;
+        Room_202;;
+
+Room_101
+    <- concept_room;
+    => nrel_main_idtf:
+        [Помещение 101]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Room 101]
+        (*
+            <- lang_en;;
+        *);;
+
+Room_102
+    <- concept_room;
+    => nrel_main_idtf:
+        [Помещение 102]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Room 102]
+        (*
+            <- lang_en;;
+        *);;
+
+Room_201
+    <- concept_room;
+    => nrel_main_idtf:
+        [Помещение 201]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Room 201]
+        (*
+            <- lang_en;;
+        *);;
+
+Room_202
+    <- concept_room;
+    => nrel_main_idtf:
+        [Помещение 202]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Room 202]
+        (*
+            <- lang_en;;
+        *);;

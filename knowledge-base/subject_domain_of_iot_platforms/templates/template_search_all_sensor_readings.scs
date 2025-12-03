@@ -1,0 +1,30 @@
+@search_all_sensor_readings_in_building = {
+    rrel_init_template: {
+        rrel_template: [*
+            @input_param1 = (.._building <-_ concept_building);;
+            
+            rrel_room _-> (.._building _-> .._room);;
+            .._room <-_ concept_room;;
+            
+            nrel_located_in _-> (.._sensor _=> .._room);;
+            .._sensor <-_ concept_sensor;;
+            
+            nrel_sensor_value _-> (.._sensor _=> .._value);;
+            @output_param1 = .._value;;
+        *];
+        rrel_template_input_params: {
+            @input_param1
+        };
+        rrel_template_output_params: {
+            @output_param1
+        }
+    } (* <- nrel_search_set_template;; *)
+};;
+
+@search_all_sensor_readings_in_building
+    <- nrel_fixed_search_strategy_template;
+    => nrel_main_idtf:
+        [Шаблон поиска показаний всех датчиков в здании]
+        (*
+            <- lang_ru;;
+        *);;

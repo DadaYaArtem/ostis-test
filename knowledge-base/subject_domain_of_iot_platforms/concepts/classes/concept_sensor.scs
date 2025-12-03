@@ -1,0 +1,19 @@
+concept_sensor
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [датчик]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [sensor]
+        (*
+            <- lang_en;;
+        *);
+    <= nrel_inclusion:
+        concept_iot_device;
+    => nrel_definition:
+        [Датчик — это IoT-устройство, предназначенное для измерения физических величин и передачи данных в систему.]
+        (*
+            <- lang_ru;;
+        *);;

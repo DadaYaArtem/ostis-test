@@ -1,0 +1,19 @@
+concept_actuator
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [исполнительное устройство]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [actuator]
+        (*
+            <- lang_en;;
+        *);
+    <= nrel_inclusion:
+        concept_iot_device;
+    => nrel_definition:
+        [Исполнительное устройство — это IoT-устройство, предназначенное для выполнения физических действий по команде системы.]
+        (*
+            <- lang_ru;;
+        *);;

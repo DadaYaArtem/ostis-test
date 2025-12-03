@@ -1,0 +1,23 @@
+rrel_room
+    <- sc_node_role_relation;
+    => nrel_main_idtf:
+        [помещение']
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [room']
+        (*
+            <- lang_en;;
+        *);
+    => nrel_first_domain:
+        concept_building;
+    => nrel_second_domain:
+        concept_room;
+    => nrel_definition:
+        [Помещение — это ролевое отношение, указывающее на помещение, находящееся в здании.]
+        (*
+            <- lang_ru;;
+        *);;
+
+rrel_room <- sc_node_role_relation;;

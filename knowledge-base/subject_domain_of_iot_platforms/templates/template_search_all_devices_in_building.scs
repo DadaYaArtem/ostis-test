@@ -1,0 +1,47 @@
+@search_all_devices_in_building = {
+    // Шаг 1: Найти все помещения в здании
+    rrel_init_template: {
+        rrel_template: [*
+            @input_param1 = (.._building <-_ concept_building);;
+            rrel_room _-> (.._building _-> .._room);;
+            @output_param1 = (.._room <-_ concept_room);;
+        *];
+        rrel_template_input_params: {
+            @input_param1
+        };
+        rrel_template_output_params: {
+            @output_param1
+        }
+    } (* <- nrel_search_set_template;; *);
+    
+    // Шаг 2: Найти все устройства в помещениях
+    rrel_next_template: {
+        rrel_init_template: {
+            rrel_template: [*
+                @input_param1 = (.._room <-_ concept_room);;
+                // ИСПРАВЛЕНО: ищем связку (device => room), на которую указывает nrel_located_in
+                .._device _=> nrel_located_in:: .._room;;
+                @output_param1 = (.._device <-_ concept_iot_device);;
+            *];
+            rrel_template_input_params: {
+                @input_param1
+            };
+            rrel_template_output_params: {
+                @output_param1
+            }
+        } (* <- nrel_search_set_template;; *)
+    } (* <- nrel_fixed_search_strategy_template;; *)
+};;
+
+@search_all_devices_in_building
+    <- nrel_fixed_search_strategy_template;
+    => nrel_main_idtf:
+        [Шаблон поиска всех устройств в здании]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Template for searching all devices in building]
+        (*
+            <- lang_en;;
+        *);;

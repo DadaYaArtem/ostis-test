@@ -1,0 +1,17 @@
+concept_room
+    <- sc_node_class;
+    => nrel_main_idtf:
+        [помещение]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [room]
+        (*
+            <- lang_en;;
+        *);
+    => nrel_definition:
+        [Помещение — это часть здания, в которой могут быть размещены IoT-устройства.]
+        (*
+            <- lang_ru;;
+        *);;

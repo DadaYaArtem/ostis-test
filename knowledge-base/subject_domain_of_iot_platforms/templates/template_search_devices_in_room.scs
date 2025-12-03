@@ -1,0 +1,29 @@
+@search_devices_in_room = {
+    rrel_init_template: {
+        rrel_template: [*
+            @input_param1 = (.._room <-_ concept_room);;
+            nrel_located_in _-> (.._device _=> .._room);;
+            @output_param1 = (.._device <-_ .._class);;
+            nrel_inclusion _-> (concept_iot_device _=> .._class);;
+        *];
+        rrel_template_input_params: {
+            @input_param1
+        };
+        rrel_template_output_params: {
+            @output_param1
+        }
+    } (* <- nrel_search_set_template;; *)
+};;
+
+@search_devices_in_room
+    <- nrel_fixed_search_strategy_template;
+    => nrel_main_idtf:
+        [Шаблон поиска устройств в помещении]
+        (*
+            <- lang_ru;;
+        *);
+    => nrel_main_idtf:
+        [Template for searching devices in room]
+        (*
+            <- lang_en;;
+        *);;
