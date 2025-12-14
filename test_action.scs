@@ -1,0 +1,7 @@
+test_run_inspection_route
+<- sc_node_not_relation;
+=> nrel_main_idtf: [Тест запуска агента] (* <- lang_ru;; *);
+<- action_find_inspection_route;
+-> rrel_1: example_factory;;
+
+action_initiated -> test_run_inspection_route;;
